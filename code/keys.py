@@ -3,9 +3,11 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = "air bat cap drum each fine gust harp sit jury crunch look made near odd pit quench red sun trap urge vest whale plex yank zip".split(
+
+default_alphabet = 'air bat char dunk each fine gus harr ice jail koop lug made near odd pooch quest red sore trap ugh vic whale ex yank zip'.split(
     " "
 )
+
 letters_string = "abcdefghijklmnopqrstuvwxyz"
 
 default_digits = "zero one two three four five six seven eight nine".split(" ")
@@ -136,11 +138,14 @@ punctuation_words = {
     "back tick": "`",
     "grave": "`",
     "comma": ",",
+    "point": ".",
     "period": ".",
     "full stop": ".",
     "semicolon": ";",
+    "semi": ";",
     "colon": ":",
     "forward slash": "/",
+    "question": "?",
     "question mark": "?",
     "exclamation mark": "!",
     "exclamation point": "!",
@@ -165,6 +170,7 @@ symbol_key_words = {
     "backslash": "\\",
     "minus": "-",
     "dash": "-",
+    "hyphen": "-",
     "equals": "=",
     "plus": "+",
     "tilde": "~",

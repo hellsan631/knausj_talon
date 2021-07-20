@@ -114,7 +114,8 @@ class Actions:
 
     def mouse_wake():
         """Enable control mouse, zoom mouse, and disables cursor"""
-        eye_zoom_mouse.toggle_zoom_mouse(True)
+        eye_zoom_mouse.toggle_zoom_mouse(False)
+        toggle_control(True)
         # eye_mouse.control_mouse.enable()
         if setting_mouse_wake_hides_cursor.get() >= 1:
             show_cursor_helper(False)
@@ -162,6 +163,15 @@ class Actions:
             ctrl.mouse_click(button=0, up=True)
 
         # app.notify("drag stopped")
+
+    def toggle_talon():
+        """Toggles control talon"""
+        if config.control_mouse:
+            toggle_control(False)
+            actions.speech.disable()
+        else:
+            toggle_control(True)
+            actions.speech.enable()
 
     def mouse_sleep():
         """Disables control mouse, zoom mouse, and re-enables cursor"""

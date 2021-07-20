@@ -106,7 +106,7 @@ def every_word(word_func):
 formatters_dict = {
     "NOOP": (SEP, lambda i, word, _: word),
     "DOUBLE_UNDERSCORE": (NOSEP, first_vs_rest(lambda w: "__%s__" % w)),
-    "PRIVATE_CAMEL_CASE": (NOSEP, first_vs_rest(lambda w: w, lambda w: w.capitalize())),
+    "PRIVATE_CAMEL_CASE": (NOSEP, first_vs_rest(lambda w: w.lower(), lambda w: w.capitalize())),
     "PROTECTED_CAMEL_CASE": (
         NOSEP,
         first_vs_rest(lambda w: w, lambda w: w.capitalize()),
@@ -124,6 +124,10 @@ formatters_dict = {
     ),
     "DOUBLE_COLON_SEPARATED": words_with_joiner("::"),
     "ALL_CAPS": (SEP, every_word(lambda w: w.upper())),
+    "ALL_CAPS_SHOUT": (
+        NOSEP,
+        first_vs_rest(lambda w: w.upper(), lambda w: "_" + w.upper()),
+    ),
     "ALL_LOWERCASE": (SEP, every_word(lambda w: w.lower())),
     "DOUBLE_QUOTED_STRING": (SEP, surround('"')),
     "SINGLE_QUOTED_STRING": (SEP, surround("'")),
@@ -145,23 +149,37 @@ formatters_dict = {
 
 # This is the mapping from spoken phrases to formatters
 formatters_words = {
+    # HELLO WORLD
     "allcaps": formatters_dict["ALL_CAPS"],
+    "shout": formatters_dict["ALL_CAPS_SHOUT"],
+    # hello world
     "alldown": formatters_dict["ALL_LOWERCASE"],
+    # helloWorld
     "camel": formatters_dict["PRIVATE_CAMEL_CASE"],
+    # hello.world
     "dotted": formatters_dict["DOT_SEPARATED"],
+    # "hello world"
     "dubstring": formatters_dict["DOUBLE_QUOTED_STRING"],
+    # __hello__world
     "dunder": formatters_dict["DOUBLE_UNDERSCORE"],
+    # HelloWorld
     "hammer": formatters_dict["PUBLIC_CAMEL_CASE"],
+    "captain": formatters_dict["PUBLIC_CAMEL_CASE"],
+    # hello-world
     "kebab": formatters_dict["DASH_SEPARATED"],
+    # hello::world
     "packed": formatters_dict["DOUBLE_COLON_SEPARATED"],
-    "padded": formatters_dict["SPACE_SURROUNDED_STRING"],
-    # "say": formatters_dict["NOOP"],
-    # "sentence": formatters_dict["CAPITALIZE_FIRST_WORD"],
+    # Hello world
+    "sentence": formatters_dict["CAPITALIZE_FIRST_WORD"],
+    # /hello/world
     "slasher": formatters_dict["SLASH_SEPARATED"],
+    # helloworld
     "smash": formatters_dict["NO_SPACES"],
+    # hello_world
     "snake": formatters_dict["SNAKE_CASE"],
-    # "speak": formatters_dict["NOOP"],
+    # 'hello world'
     "string": formatters_dict["SINGLE_QUOTED_STRING"],
+    # Hello World
     "title": formatters_dict["CAPITALIZE_ALL_WORDS"],
     # disable a few formatters for now
     # "tree": formatters_dict["FIRST_THREE"],
