@@ -114,7 +114,8 @@ class Actions:
 
     def mouse_wake():
         """Enable control mouse, zoom mouse, and disables cursor"""
-        eye_zoom_mouse.toggle_zoom_mouse(True)
+        eye_zoom_mouse.toggle_zoom_mouse(False)
+        toggle_control(True)
         # eye_mouse.control_mouse.enable()
         if setting_mouse_wake_hides_cursor.get() >= 1:
             show_cursor_helper(False)
@@ -161,6 +162,15 @@ class Actions:
         buttons_held_down = list(ctrl.mouse_buttons_down())
         for button in buttons_held_down:
             ctrl.mouse_click(button=button, up=True)
+
+    def toggle_talon():
+        """Toggles control talon"""
+        if config.control_mouse:
+            toggle_control(False)
+            actions.speech.disable()
+        else:
+            toggle_control(True)
+            actions.speech.enable()
 
     def mouse_sleep():
         """Disables control mouse, zoom mouse, and re-enables cursor"""

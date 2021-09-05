@@ -73,7 +73,7 @@ _simple_vocab_default = ["nmap", "admin", "Cisco", "Citrix", "VPN", "DNS", "Mine
 # Defaults for different pronounciations of words that need to be added to
 # Talon's vocabulary.
 _default_vocabulary = {
-    "N map": "nmap",
+    # "N map": "nmap",
     "under documented": "under-documented",
 }
 _default_vocabulary.update({word: word for word in _simple_vocab_default})
