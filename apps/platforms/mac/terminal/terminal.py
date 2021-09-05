@@ -1,6 +1,8 @@
 from talon import Context, Module, actions, imgui, settings, ui
 import os
 
+# TODO: fit this to generic_terminal
+
 ctx = Context()
 ctx.matches = r"""
 app: apple_terminal
@@ -10,9 +12,6 @@ directories_to_exclude = {}
 
 @ctx.action_class('edit')
 class EditActions:
-    def paste():       actions.key('shift-insert')
-    def copy():        actions.key('ctrl-insert')
-    
     def delete_line(): actions.key('ctrl-u')
 
 
