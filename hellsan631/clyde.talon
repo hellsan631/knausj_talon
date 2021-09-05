@@ -149,3 +149,9 @@ clyde tasks native:
   "clyde native dev-rtc-worker"
   key(enter)
 
+clyde pods:
+  "cd ~/Documents/GitHub/discord"
+  key(enter)
+  key(cmd-k)
+  "clyde ios sync-pods"
+  key(enter)
