@@ -10,8 +10,6 @@ file open: key(cmd-p)
 comment: key(cmd-/)
 (toggle zen | is then mowed | zen mode): key(cmd-k z)
 trim [(white | whitespace | line)]: key(cmd-k cmd-x)
-scroll top: key(cmd-up)
-scroll bottom: key(cmd-down)
 
 coca: key(ctrl-cmd-j)
 prop me: key(cmd-shift-alt-p)
