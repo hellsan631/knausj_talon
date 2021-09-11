@@ -1,5 +1,8 @@
 os: mac
 and app.bundle: com.apple.RemoteDesktop
+
+os: mac
+and app.bundle: com.microsoft.VSCode
 -
 
 go (to | tee): key(f12)

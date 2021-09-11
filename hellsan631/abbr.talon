@@ -44,4 +44,4 @@ div: "div"
 pee ex: "px"
 pixels: "px"
 
-only native: "*ios*, *native*"
+only (native | phone | ios): "*ios*, *native*"
