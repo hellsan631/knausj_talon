@@ -25,12 +25,8 @@ is type no: "== null"
 mark to do: "// @todo - "
 mark flow: "// @flow"
 type doc:
-  "/***/"
-  key(left)
-  key(left)
+  "/**"
   key(space)
-  key(space)
-  key(left)
 comment:
   key(cmd-/)
 (multi-comment | document more):
